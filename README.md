@@ -106,34 +106,37 @@ breastfeeding-nutritional-counseling-ethiopia/
 └── LICENSE
 
 
-**How to Reproduce**
+## How to Reproduce
 
-Request DHS data (ETKR71FL) from the DHS Program
+1. **Request DHS data** (ETKR71FL) from the DHS Program.
 
-Set the library path in SAS:
+2. **Set the library path** in SAS:
 
+```sas
 libname C "C:\Your\Local\Path\To\EDHS";
 
 
-**Run scripts in order:**
+## Run the scripts in order
 
 01_data_preparation.sas
-
 02_descriptive_analysis.sas
-
 03_bivariate_analysis.sas
-
 04_logistic_regression.sas
 
 **Manuscript**
 
-The full research paper, including methods, weighted results, regression tables, and public health interpretation, is available in:
-
+The full research paper—including methods, weighted results, regression tables, and public health interpretation—is available in:
 docs/Original Research Manuscript.pdf
 
 **Public Health Relevance**
 
-The findings highlight delivery-related and structural barriers to early breastfeeding initiation, emphasizing the importance of post-delivery support and skilled birth attendance, particularly following cesarean sections.
+The findings highlight delivery-related and structural barriers to early breastfeeding initiation, emphasizing the importance of:
+
+Post-delivery support
+
+Skilled birth attendance
+
+Additional support for women delivering via cesarean section
 
 **Contact**
 
@@ -144,6 +147,6 @@ Aditya Kumar, MPH (Epidemiology)
 
 Raw DHS data are not shared due to licensing restrictions
 
-Code is modular, reproducible, and well-documented
+SAS code is modular, reproducible, and well-documented
 
-Demonstrates applied skills in SAS programming, survey methodology, and epidemiologic analysis
+Demonstrates skills in SAS programming, survey methodology, and epidemiologic analysis
