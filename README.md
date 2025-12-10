@@ -1,173 +1,148 @@
-**Association Between Nutritional Counseling During Antenatal Care and Timely Initiation of Breastfeeding — A SAS Epidemiological Analysis**
+# Association Between Nutritional Counseling During Antenatal Care and Timely Initiation of Breastfeeding  
+### A Survey-Weighted Epidemiological Analysis (SAS)
 
-📍 Dataset: 2016 Ethiopia Demographic and Health Survey (EDHS) – Birth Recode
+🔗 **Part of the Public Health & Healthcare Analytics Portfolio**  
 
-📁 Methods: Survey-weighted descriptive, bivariate, and multivariable logistic regression
 
-🧑‍💻 Tools: SAS 9.4 / SAS Studio
+---
 
-👤 Author: Aditya Kumar, MPH Epidemiology
+## Project Overview
 
+This project investigates whether **nutritional counseling during antenatal care (ANC)** is associated with **timely initiation of breastfeeding (within 1 hour of birth)** among women in Ethiopia, using nationally representative survey data.
 
-**📌 Project Overview**
+The analysis applies **complex survey methods in SAS** and follows a complete epidemiologic workflow suitable for peer-reviewed research and public health reporting.
 
-This project evaluates whether nutritional counseling during antenatal care (ANC) is associated with timely initiation of breastfeeding (TIBF)—defined as breastfeeding within the first hour after birth—among Ethiopian women using the 2016 EDHS dataset.
+---
 
-This repository demonstrates a full epidemiologic data analysis workflow in SAS, including:
+## Data Source
 
-Importing raw DHS data
+- **Dataset:** 2016 Ethiopia Demographic and Health Survey (EDHS)
+- **File:** Birth Recode (ETKR71FL)
+- **Design:** Stratified, multistage cluster sampling
+- **Population:** Women with recent live births
 
-Recoding variables and constructing analytical datasets
+⚠️ Raw DHS data are not included due to data-use restrictions.  
+Data can be requested from: https://dhsprogram.com
 
-Applying complex survey design (weights, strata, clusters)
+---
 
-Producing weighted descriptive statistics
+## Research Objective
 
-Conducting Rao–Scott chi-square tests
+To assess whether receipt of nutritional counseling during ANC increases the odds of initiating breastfeeding within one hour of birth, after adjusting for maternal, socioeconomic, and delivery-related factors.
 
-Building survey-weighted logistic regression models (crude & adjusted)
+---
 
-Preparing results for manuscript reporting
+## Tools & Software
 
-The final manuscript summarizing the study is included in the docs/ folder
+- **SAS 9.4 / SAS Studio**
+- Survey procedures:
+  - `PROC SURVEYFREQ`
+  - `PROC SURVEYLOGISTIC`
 
-🎯 **Research Objective**
+---
 
-To determine whether women who receive nutritional counseling during ANC have higher odds of initiating breastfeeding within 1 hour of birth compared to those who do not—after adjusting for demographic, socioeconomic, and delivery-related factors.
+## Key Variables
 
-**Key Variables**
-**Outcome Variable**
+### Outcome
+- **bfi** — Timely initiation of breastfeeding  
+  - `1` = Within 1 hour  
+  - `0` = After 1 hour
 
-bfi — Timely initiation of breastfeeding
+### Primary Exposure
+- **nc2** — Nutritional counseling during ANC  
+  - `1` = Received  
+  - `0` = Not received
 
-1 = Breastfed within 1 hour
+### Covariates
+- Maternal age
+- Marital status
+- Education
+- Parity
+- Employment
+- Wealth index
+- Health insurance
+- Urban/rural residence
+- Number of ANC visits
+- Place of delivery
+- Cesarean section
+- Skilled birth attendance
+- Child sex
 
-0 = Later than 1 hour
+All variables were derived using DHS standard recode guidelines.
 
-**Primary Exposure**
+---
 
-nc2 — Nutritional counseling during ANC
+## Statistical Methods
 
-1 = Received
+### Descriptive Analysis
+- Survey-weighted frequencies using `PROC SURVEYFREQ`
 
-0 = Did not receive
+### Bivariate Analysis
+- Rao–Scott chi-square tests
 
-**Covariates Included in Analysis**
+### Multivariable Analysis
+- Survey-weighted logistic regression using `PROC SURVEYLOGISTIC`
+- **Weights:** `v005 / 1,000,000`
+- **Strata:** `v023`
+- **Clusters:** `v021`
+- Adjusted odds ratios (aOR) with 95% confidence intervals
 
-Maternal age (age2)
+---
 
-Marital status (marital2)
+## Repository Structure
 
-Education level (edu2)
+```plaintext
+breastfeeding-nutritional-counseling-ethiopia/
+├── code/
+│   ├── 01_data_preparation.sas
+│   ├── 02_descriptive_analysis.sas
+│   ├── 03_bivariate_analysis.sas
+│   └── 04_logistic_regression.sas
+├── docs/
+│   └── Original Research Manuscript.pdf
+├── Output Tables SAS.docx
+├── README.md
+└── LICENSE
 
-Parity (pa2)
 
-Employment status (work2)
+**How to Reproduce**
 
-Wealth index (wealth2)
+Request DHS data (ETKR71FL) from the DHS Program
 
-Health insurance status (hlthin2)
+Set the library path in SAS:
 
-Urban/rural residence (residence2)
+libname C "C:\Your\Local\Path\To\EDHS";
 
-Number of ANC visits (anc2)
 
-Place of delivery (plc2)
+**Run scripts in order:**
 
-Cesarean section (cs2)
+01_data_preparation.sas
 
-Skilled birth attendant (skilled2)
+02_descriptive_analysis.sas
 
-Sex of the child (sex2)
+03_bivariate_analysis.sas
 
-All variables are derived according to DHS Standard Recode guidelines.
+04_logistic_regression.sas
 
-📈 **Statistical Methods**
+**Manuscript**
 
-**1. Descriptive Statistics**
-
-Weighted distributions using PROC SURVEYFREQ.
-
-**2. Bivariate Analysis**
-
-Rao–Scott chi-square tests to examine unadjusted associations between predictors and TIBF.
-
-**3. Multivariable Logistic Regression**
-
-Survey-weighted models using PROC SURVEYLOGISTIC:
-
-Weights: v005 / 1,000,000
-
-Strata: v023
-
-Clusters: v021
-
-Outcome: bfi (event = "1")
-
-Exposure: nc2
-
-Adjusted for: all covariates listed above
-
-Outputs include crude odds ratios (OR), adjusted OR (aOR), and 95% confidence intervals.
-
-🔁 **How to Reproduce**
-**1. Request DHS Dataset**
-
-Download **ETKR71FL** from the DHS Program after requesting access:
-
-🔗 https://dhsprogram.com
-
-(Raw DHS data cannot be included in this repo.)
-
-2. **Store the dataset locally**
-
-Example path used in scripts:
-
-C:\Users\neplu\Downloads\ETH\
-
-3. **Update and run the SAS scripts**
-
-Set library path:
-
-libname C "C:\Users\neplu\Downloads\ETH";
-
-
-**Run scripts in order**:
-
-1️⃣ 01_data_preparation.sas
-2️⃣ 02_descriptive_analysis.sas
-3️⃣ 03_bivariate_analysis.sas
-4️⃣ 04_logistic_regression.sas
-
-
-📄 **Manuscript**
-
-The final research paper is available in:
+The full research paper, including methods, weighted results, regression tables, and public health interpretation, is available in:
 
 docs/Original Research Manuscript.pdf
 
+**Public Health Relevance**
 
-It contains:
+The findings highlight delivery-related and structural barriers to early breastfeeding initiation, emphasizing the importance of post-delivery support and skilled birth attendance, particularly following cesarean sections.
 
-Methods
+**Contact**
 
-Fully weighted results
+Aditya Kumar, MPH (Epidemiology)
+📧 Email: neplusultraa@gmail.com
 
-Regression tables
+**Notes**
 
-Interpretation of findings
+Raw DHS data are not shared due to licensing restrictions
 
-Public health implications
+Code is modular, reproducible, and well-documented
 
-📬 **Contact**
-
-Aditya Kumar, MPH
-Email: neplusultraa@gmail.com
-
-⭐ **Notes**
-
-Raw DHS data are not included due to licensing restrictions.
-
-All SAS code is modular, documented, and reproducible.
-
-This project demonstrates skills in SAS programming, epidemiological methods, and applied statistical analysis.
+Demonstrates applied skills in SAS programming, survey methodology, and epidemiologic analysis
