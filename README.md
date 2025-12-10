@@ -106,13 +106,6 @@ breastfeeding-nutritional-counseling-ethiopia/
 └── LICENSE
 
 
+Manuscript
 
-## How to Reproduce
-
-1. **Request DHS data** (ETKR71FL) from the DHS Program.
-
-2. **Set the library path** in SAS:
-
-```sas
-libname C "C:\Your\Local\Path\To\EDHS";
-
+The full research paper—including methods, weighted results, regression tables, and public health interpretation—is available in:
