@@ -2,8 +2,7 @@
 **Association Between Nutritional Counseling During Antenatal Care and Timely Initiation of Breastfeeding**
 A Survey-Weighted Epidemiological Analysis Using SAS
 
-🔗 **Part of the Public Health & Healthcare Analytics Portfolio**  
-https://github.com/addythedoc/public-health-data-analytics-portfolio/tree/main
+🔗 https://github.com/addythedoc/public-health-data-analytics-portfolio/tree/main
 
 Author: Aditya Kumar, MPH (Epidemiology)
 Tools: SAS 9.4 / SAS Studio
