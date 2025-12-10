@@ -90,6 +90,14 @@ All variables were derived using DHS standard recode guidelines.
 
 ---
 
+
+
+
+Manuscript
+
+The full research paper—including methods, weighted results, regression tables, and public health interpretation—is available in:
+
+
 ## Repository Structure
 
 ```plaintext
@@ -104,8 +112,3 @@ breastfeeding-nutritional-counseling-ethiopia/
 ├── Output Tables SAS.docx
 ├── README.md
 └── LICENSE
-
-
-Manuscript
-
-The full research paper—including methods, weighted results, regression tables, and public health interpretation—is available in:
