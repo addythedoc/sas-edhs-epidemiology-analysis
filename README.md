@@ -162,7 +162,7 @@ Public health implications
 📬 **Contact**
 
 Aditya Kumar, MPH
-Email: ak781322@ohio.edu
+Email: neplusultraa@gmail.com
 
 ⭐ **Notes**
 
